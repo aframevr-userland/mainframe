@@ -1,0 +1,26 @@
+{
+  "name": "aframe-index",
+  "description": "An index of WebVR scenes made with A-Frame.",
+  "author": "A-Frame authors",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "CC0-1.0",
+  "repository": "aframevr-userland/aframe-index",
+  "homepage": "https://github.com/aframevr-userland/aframe-index",
+  "bugs": "https://github.com/aframevr-userland/aframe-index/issues",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV='development' http-server -c-1",
+    "prod": "cross-env NODE_ENV='production' http-server -c-1",
+    "lint": "semistandard -v | snazzy",
+    "lint-fix": "semistandard --fix"
+  },
+  "dependencies": {
+    "cross-env": "^5.0.1",
+    "http-server": "^0.10.0"
+  },
+  "devDependencies": {
+    "semistandard": "^11.0.0",
+    "snazzy": "^7.0.0"
+  }
+}

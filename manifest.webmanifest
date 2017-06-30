@@ -1,0 +1,14 @@
+{
+  "lang": "en",
+  "name": "A-Frame Index",
+  "short_name": "A-Frame",
+  "start_url": "./?src=manifest",
+  "display": "minimal-ui",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://index.aframe.io/assets/img/icon-outline.svg",
+      "sizes": "339x286"
+    }
+  ]
+}
