@@ -6,7 +6,6 @@
 
 html,
 body {
-  background: #ef2d5e;
   height: 100%;
   width: 100%;
 }
@@ -24,6 +23,14 @@ html {
 body {
   font: 300 1rem/1.2 BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.5rem;
+}
+
+.apink {
+  color: #ef2d5e;
+}
+
+.bg-apink {
+  background-color: #ef2d5e;
 }
 
 .code,
@@ -46,82 +53,76 @@ h6 {
   position: absolute;
 }
 
-.swiper-container {
-  border-radius: 2px;
-  bottom: 1rem;
-  box-shadow: 0 0 .5rem rgba(0,0,0,.2);
+.text-hidden {
+  text-indent: -200%;
+}
+
+/* Source: adapted from https://codepen.io/joroji/pen/bZJbEp */
+
+/*[data-supports-touch="true"] .card-container {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.card-container {
+  background: #eee;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px lightgray;
+  counter-increment: card;
+  display: none;
+  float: left;
+  height: 400px;
+  list-style: none;
+  margin: 10px;
+  padding: 20px;
+  position: absolute;
+  transform: scale(.8);
+  width: 60%;
+  z-index: 1;
+}
+
+.card.animate-prev {
+  transform: translateX(-150%) !important;
+}
+
+.card.animate-next {
+  transform: translateX(170%) !important;
+}
+
+.card.active,
+.card.prev,
+.card.next,
+.card.animate-prev,
+.card.animate-next {
   display: block;
-  /*
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: stretch;
-  align-items: stretch;
-  */
-  /*height: 100%;*/
-  /*height: calc(100% - 7rem);*/
-  margin: 0 1rem;
-  margin-bottom: 1rem;
-  top: 5.6rem;
-  /*overflow: visible;
-  position: absolute;*/
-  width: 100%;
-  width: 100%;
-  width: calc(100% - 2rem);
+  transition: transform 1.5s ease;
 }
 
-.swiper-wrapper {
-  background-color: red;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: stretch;
-  align-items: stretch;
+.card.active {
+  z-index: 2;
+  transform: scale(1) translateX(12%);
 }
 
-.swiper-slide {
-  opacity: .5;
-  transition: .15s ease-in-out opacity;
+.card.prev {
+ transform: scale(.8) translateX(-110%);
 }
 
-[data-supports-touch="false"] .swiper-slide:hover {
-  opacity: 1;
-}
+.card.next {
+ transform: scale(.8) translateX(140%);
+}*/
 
-.swiper-slide {
-  /*
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  */
-  align-items: center;
-  /*background: #fff;*/
-  background: #fff;
-  border: .25rem solid rgba(255,255,255,1);
-  border-radius: 2px;
-  /*padding: 2px;*/
-  /*
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flex;
-  */
-  /*display: flex;*/
-  font-size: 18px;
-  /*justify-content: center;*/
-  /*text-align: center;*/
-  height: 50vh;
-  overflow: hidden;
-}
-
-[data-supports-touch="false"] .swiper-slide {
-  margin-top: 2rem;
-}
+/* cell number */
+/*.card:before {
+  color: #111;
+  display: block;
+  font-size: 80px;
+  line-height: 200px;
+  text-align: center;
+}*/
 
 .scene-img {
   background-color: #eee;
@@ -129,4 +130,20 @@ h6 {
   background-size: cover;
   height: 100%;
   width: 100%;
+}
+
+.scene-radio:not(:checked) ~ * {
+  opacity: .3;
+}
+
+.scene-radio:checked + .scene-link .scene-link-inner {
+  box-shadow: inset 0 0 .5px rgba(0,0,0,.15), 0 0 0 4px rgba(0,0,0,.05), 0 0 0 1px rgba(0,0,0,.05);
+}
+
+.visually-hidden {
+  /*left: -100%;
+  position: absolute;
+  position: relative;
+  opacity: .5;*/
+  /*visibility: hidden;*/
 }

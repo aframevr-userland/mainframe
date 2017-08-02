@@ -1,110 +1,140 @@
-/* global Swiper */
 (function () {
-  window.addEventListener('load', function () {
-    var supports = {
-      touch: 'ontouchstart' in window
-    };
+  var scenesFormEl = document.querySelector('#scenes-form');
 
-    document.documentElement.setAttribute('data-supports-touch', supports.touch);
-
-    var store = {};
-    try {
-      store.works = JSON.parse(localStorage.works);
-    } catch (err) {
-    }
-
-    var xhr = new XMLHttpRequest();
-
-    xhr.open('get', 'https://index-api.aframe.io/api/works', true);
-
-    xhr.addEventListener('error', function (err) {
-      try {
-        localStorage.works = JSON.stringify([]);
-      } catch (err) {
+  function spatialNavUpdate (evt) {
+    var el = evt.target;
+    var sceneEl = el && el.closest && el.closest('.scene');
+    if (sceneEl) {
+      var sceneLabelEl = el && el.closest && (el.closest('.scene-label') || el.querySelector('.scene-label'));
+      var sceneRadioEl;
+      if (sceneLabelEl) {
+        sceneRadioEl = sceneLabelEl.querySelector('.scene-radio');
       }
-      throw err;
-    });
-
-    xhr.addEventListener('load', function () {
-      var items = null;
-      try {
-        items = JSON.parse(xhr.responseText);
-      } catch (err) {
-      }
-
-      store.works = items || [];
-
-      var swiperWrapper = document.querySelector('#swiper-wrapper');
-
-      store.works.push({
-        name: 'A Saturday Night',
-        short_name: 'A-Saturday-Night',
-        icons: [
-          {
-            type: 'image/jpg',
-            src: 'https://webvr.rocks/a_saturday_night/poster.jpg'
-          }
-        ],
-        description: 'Record and share your dance moves'
-      });
-
-      store.works.forEach(function (manifest) {
-        var shortNameLower = (manifest.short_name || '').toLowerCase();
-
-        if (shortNameLower === 'a-painter') {
-          manifest.processed_best_icon = {
-            src: 'https://dl.airtable.com/RPPe979wRAil2X0OfUND_full_apainter.png',
-            type: 'image/png'
-          };
-        }
-
-        if (!manifest.processed_best_icon) {
-          manifest.processed_best_icon = manifest.icons[0];
-        }
-
-        if (!manifest.processed_best_icon) {
+      Array.prototype.forEach.call(scenesFormEl.querySelectorAll('.scene-label .scene-radio'), function (el) {
+        console.log(sceneRadioEl.closest('li'), el.closest('li'));
+        if (el === sceneRadioEl) {
           return;
         }
-
-        var swiperSlide = document.createElement('div');
-        swiperSlide.className = 'swiper-slide';
-        swiperSlide.setAttribute('data-short-name', manifest.short_name);
-
-        var swiperSlideInner = document.createElement('div');
-        swiperSlide.className = 'swiper-slide-inner';
-
-        var name = document.createElement('h3');
-        name.textContent = manifest.name || manifest.short_name || '';
-        swiperSlideInner.appendChild(name);
-
-        var image = document.createElement('div');
-        image.className = 'scene-img';
-
-        image.style.cssText = 'background-image: url(' + manifest.processed_best_icon.src + ')';
-
-        swiperSlideInner.appendChild(image);
-        swiperSlide.appendChild(swiperSlideInner);
-        swiperWrapper.appendChild(swiperSlide);
+        el.removeAttribute('checked');
+        el.blur();
       });
-
-      if (supports.touch) {
-        var swiper = new Swiper('#swiper-container', {
-          pagination: '#swiper-pagination',
-          paginationClickable: true,
-          direction: 'vertical',
-          slidesPerView: 1,
-          centeredSlides: true,
-          spaceBetween: 30,
-          keyboardControl: true
-        });
+      if (sceneRadioEl) {
+        sceneRadioEl.setAttribute('checked', '');
+        sceneRadioEl.focus();
       }
+    }
+  }
 
-      try {
-        localStorage.works = xhr.responseText;
-      } catch (err) {
-      }
-    });
+  if (scenesFormEl) {
+    window.addEventListener('mouseover', spatialNavUpdate);
+    window.addEventListener('keydown', spatialNavUpdate);
+    window.addEventListener('click', spatialNavUpdate);
+  }
 
-    xhr.send();
-  });
+  // window.addEventListener('load', function () {
+  //   var network = {
+  //     cache: true,
+  //     fetch: false
+  //   };
+  //   var supports = {
+  //     touch: 'ontouchstart' in window
+  //   };
+  //
+  //   document.documentElement.setAttribute('data-supports-touch', supports.touch);
+  //
+  //   var store = {
+  //     scenes: []
+  //   };
+  //   if (network.cache) {
+  //     try {
+  //       store.scenes = JSON.parse(localStorage.scenes);
+  //     } catch (err) {
+  //     }
+  //   }
+  //
+  //   var render = {};
+  //   render.scenes = function (scenes) {
+  //     var scenesEl = document.querySelector('#scenes');
+  //
+  //     store.scenes = scenes;
+  //
+  //     store.scenes.forEach(function (scene) {
+  //       var name = scene.name || scene.short_name || '';
+  //       var slug = (scene.slug || scene.short_name || '').toLowerCase();
+  //
+  //       var sceneEl = document.createElement('li');
+  //       sceneEl.className = 'scene-inner';
+  //       sceneEl.setAttribute('data-short-name', scene.short_name);
+  //
+  //       var nameEl = document.createElement('h3');
+  //       nameEl.textContent = name;
+  //       sceneEl.appendChild(nameEl);
+  //
+  //       var imageEl = document.createElement('div');
+  //       imageEl.className = 'scene-img';
+  //
+  //       // image.style.cssText = 'background-image: url(' + manifest.processed_best_icon.src + ')';
+  //       imageEl.style.cssText = 'background-image: url(' + scene.screenshots[0].src + ')';
+  //
+  //       sceneEl.appendChild(imageEl);
+  //       scenesEl.appendChild(sceneEl);
+  //     });
+  //
+  //     if (supports.touch) {
+  //
+  //     }
+  //
+  //     if (network.cache) {
+  //       try {
+  //         localStorage.scenes = JSON.stringify(store.scenes);
+  //       } catch (err) {
+  //       }
+  //     }
+  //   };
+  //
+  //   if (network.fetch) {
+  //     var base = new Airtable({apiKey: 'keyMJq1gSRuwMTZ8r'}).base('app08C2f6KbFHvaAA');
+  //
+  //     console.log('fetching');
+  //
+  //     var newScenes = [];
+  //
+  //     base('webvr_scenes').select({
+  //       maxRecords: 100,
+  //       view: 'Scenes Feed',
+  //     }).eachPage(function (records, fetchNextPage) {
+  //       records.forEach(function (record) {
+  //         // console.log('Retrieved record:', record.get('Name'));
+  //         // console.log(record, JSON.stringify(record));
+  //
+  //         newScenes.push({
+  //           name: record.get('Name'),
+  //           short_name: record.get('Short Name') || record.get('Name'),
+  //           start_url: record.get('URL'),
+  //           tags: record.get('Tags'),
+  //           description: record.get('Description'),
+  //           // author: record.get('Author'),
+  //           screenshots: record.get('Screenshots').map(function (screenshot) {
+  //             return {
+  //               src: screenshot.url,
+  //               type: screenshot.type
+  //             };
+  //           }),
+  //           webvr_supports: record.get('Supports')
+  //         });
+  //       });
+  //
+  //       fetchNextPage();
+  //     }, function done (err) {
+  //       if (err) {
+  //         console.log('Error occurred:', err);
+  //         return;
+  //       }
+  //
+  //       render.scenes(newScenes);
+  //     });
+  //   } else {
+  //     render.scenes(store.scenes);
+  //   }
+  // });
 })();

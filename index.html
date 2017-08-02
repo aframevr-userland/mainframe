@@ -1,15 +1,14 @@
 <!doctype html>
-<html data-layout="aframe stats" data-supports-touch="false">
+<html data-layout="aframe" data-supports-touch="false">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-    <title>A-Frame Index • WebVR experiences made with A-Frame</title>
+    <title>A-Frame Mainframe • Explore WebVR creations made with A-Frame</title>
 
     <link rel="canonical" href="https://index.aframe.io/">
     <meta name="theme-color" content="#ef2d5e">
 
-    <link rel="stylesheet" href="assets/css/swiper.min.css">
     <link rel="stylesheet" href="assets/css/tachyons.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -18,8 +17,8 @@
     <meta name="description" content="WebVR experiences made with A-Frame">
     <meta name="keywords" content="webvr,webvr framework,aframe,aframevr,webvr demos,webvr sites,vr javascript,vr framework">
 
-    <meta property="og:title" content="A-Frame Statistics">
-    <meta property="og:site_name" content="A-Frame Statistics">
+    <meta property="og:title" content="A-Frame">
+    <meta property="og:site_name" content="A-Frame">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://index.aframe.io/">
     <meta property="og:description" content="WebVR experiences made with A-Frame">
@@ -33,16 +32,98 @@
     <meta property="fb:app_id" content="1535794316743373">
   </head>
   <body class="black-70">
-    <a href="" class="db pa3 wordmark">
-      <img src="assets/img/logo-outline.svg" class="db w3" alt="A-Frame Index">
-    </a>
-    <div id="swiper-container" class="swiper-container">
-      <div id="swiper-wrapper" class="swiper-wrapper">
-      </div>
-      <!-- <div id="swiper-pagination" class="swiper-pagination"></div> -->
-    </div>
-    <script src="assets/js/ga.js" async defer></script>
-    <script src="assets/js/swiper.min.js"></script>
+    <header id="header" class="header pb3">
+      <a href="./" class="db pa4 pt3 pb3 wordmark o-80 glow w-100 bg-apink">
+        <img src="assets/img/logo-outline.svg" class="db h2 center" alt="A-Frame Index">
+      </a>
+    </header>
+    <main id="main" class="main pt5">
+      <form id="scenes-form" class="scenes-form">
+        <ol id="scenes" class="scenes list bg-white-90">
+          <li id="scene-zuumo" class="scene bg-yellow-"
+              data-name="Zuumo"
+              data-short_name="Zuumo"
+              data-slug="zuumo"
+              data-start_url="https://moyashipan.github.io/zuumo/"
+              data-screenshots-0-type="image/png"
+              data-screenshots-0-src="assets/img/scenes/screenshot.png"
+              data-supports="google_cardboard+ios google_cardboard+android">
+            <label class="scene-label db">
+              <input type="radio" class="scene-radio visually-hidden" name="scene" checked autofocus>
+              <a class="scene-link db link color-inherit w-100 pa4" href="https://moyashipan.github.io/zuumo/">
+                <div class="scene-link-inner bg-light-green br3 ba b--black-10 h-100 pa4 relative">
+                  <h3 class="scene-name white fw6 f2">Zuumo</h3>
+                  <div class="bg-center contain h-100 w-100 overflow-hidden text-hidden dn" style="background-image: url(assets/img/scenes/zuumo/screenshot.png)">
+                  </div>
+                </div>
+              </a>
+              <div class="scene-author black-40 pa4 pt0">
+                by <a href="scene-author-link db" href="https://github.com/moyashipan">Moyashipan</a>
+              </div>
+            </label>
+          </li>
+          <li id="scene-ghost-trainer-builder" class="scene scene-ghost-trainer-builder"
+              data-name="Ghost Trainer Bulilder"
+              data-short_name="Ghost Trainer"
+              data-slug="ghost_trainer_builder"
+              data-start_url="http://ghosttrainbuilder.com/"
+              data-screenshots-0-type="image/png"
+              data-screenshots-0-src="https://dl.airtable.com/suD9Z9nmRBKtv5T8ifg4_full_Screen%20Shot%202017-07-21%20at%201.45.40%20PM.png"
+              data-supports="google_cardboard+ios google_cardboard+android">
+            <label class="scene-label db">
+              <input type="radio" class="scene-radio visually-hidden" name="scene" autofocus>
+              <a class="scene-link db link color-inherit w-100 pa4" href="http://ghosttrainbuilder.com/">
+                <div class="scene-link-inner bg-light-red br3 ba b--black-10 h-100 pa4 relative">
+                  <h3 class="scene-name white fw6 f2">Ghost Trainer Builder</h3>
+                  <div class="bg-center contain h-100 w-100 overflow-hidden text-hidden dn" style="background-image: url(assets/img/scenes/zuumo/screenshot.png)">
+                  </div>
+                </div>
+              </a>
+              <div class="scene-author black-40 pa4 pt0">
+                by <a href="scene-author-link db" href="http://www.realise.com/">Realise</a>
+              </div>
+            </label>
+          </li>
+          <li id="scene-cadavr" class="scene scene-cadavr"
+              data-name="CadaVR"
+              data-short_name="CadaVR"
+              data-slug="cadavr"
+              data-start_url="https://github.com/drryanjames/CadaVR"
+              data-posts-0-src="http://blog.leapmotion.com/welcome-cadavr-living-cadaver-laboratory-web/"
+              data-posts-1-src="https://developer.leapmotion.com/gallery/cadavr"
+              data-videos-0-src="https://www.youtube.com/watch?v=eYyuEjhD-k8"
+              data-videos-1-src="https://www.youtube.com/watch?v=ONAYPFOZ_Ug"
+              data-videos-2-src="https://www.youtube.com/watch?v=qSBupUubrnQ"
+              data-repository="https://github.com/drryanjames/CadaVR"
+              data-screenshots-0-type="image/png"
+              data-screenshots-0-src=""
+              data-supports="oculus_rift+windows leapmotion">
+            <label class="scene-label db">
+              <input type="radio" class="scene-radio visually-hidden" name="scene" autofocus>
+              <a class="scene-link db link color-inherit w-100 pa4" href="http://ghosttrainbuilder.com/">
+                <div class="scene-link-inner bg-light-red br3 ba b--black-10 h-100 pa4 relative">
+                  <h3 class="scene-name white fw6 f2"></h3>
+                  <div class="bg-center contain h-100 w-100 overflow-hidden text-hidden dn" style="background-image: url(assets/img/scenes/zuumo/screenshot.png)">
+                  </div>
+                </div>
+              </a>
+              <div class="scene-author black-40 pa4 pt0">
+                by <a href="scene-author-link db" href="https://github.com/drryanjames">Dr. Ryan James</a>, University of Washington
+              </div>
+              <div class="scene-description black-40 pa4 pt0">
+                <p>Use your Leap-Motion hands to dissect a cadaver.</p>
+                <p>No real humans were used in the making of this virtual science project.</p>
+              </div>
+            </label>
+          </li>
+        </ol>
+      </form>
+    </main>
+    <!-- <script src="assets/js/ga.js" async defer></script> -->
+    <!-- <script src="assets/js/swiper.min.js"></script> -->
+    <!-- <script src="assets/js/airtable.browser.js"></script> -->
     <script src="assets/js/main.js"></script>
+    <script>
+    </script>
   </body>
 </html>
