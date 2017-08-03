@@ -65,11 +65,25 @@ h6 {
   width: 100%;
 }
 
-.scene-radio:not(:checked) ~ * {
+.scene-radio {
+  left: .5rem;
+  opacity: .3;
+  position: relative;
+  top: .5rem;
+}
+
+.scene-radio:not(:checked) ~ *,
+.scene-link ~ * {
   opacity: .3;
 }
 
-.scene-radio:checked + .scene-link .scene-link-inner {
+.scene-link:hover,
+.scene-link:hover ~ * {
+  opacity: 1;
+}
+
+.scene-radio:checked + .scene-link .scene-link-inner,
+.scene-link:hover .scene-link-inner {
   box-shadow: inset 0 0 .5px rgba(0,0,0,.15), 0 0 0 4px rgba(0,0,0,.05), 0 0 0 1px rgba(0,0,0,.05);
 }
 
@@ -86,13 +100,13 @@ h6 {
 input:checked ~ a .glow,
 input:checked ~ a .glow:focus,
 input:checked ~ a .glow:hover {
-    -webkit-transition: opacity .15s ease-in;
-    transition: opacity .15s ease-in
+  -webkit-transition: opacity .15s ease-in;
+  transition: opacity .15s ease-in;
 }
 
 input:checked ~ a .glow:focus,
 input:checked ~ a .glow:hover {
-    opacity: 1
+  opacity: 1;
 }
 
 .hide-child .child {
