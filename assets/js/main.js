@@ -11,7 +11,6 @@
         sceneRadioEl = sceneLabelEl.querySelector('.scene-radio');
       }
       Array.prototype.forEach.call(scenesFormEl.querySelectorAll('.scene-label .scene-radio'), function (el) {
-        console.log(sceneRadioEl.closest('li'), el.closest('li'));
         if (el === sceneRadioEl) {
           return;
         }
@@ -21,14 +20,34 @@
       if (sceneRadioEl) {
         sceneRadioEl.setAttribute('checked', '');
         sceneRadioEl.focus();
+        sceneEl.scrollIntoView();
       }
     }
   }
 
+  function sceneChosen (evt) {
+    console.log('scene chosen', evt.type, evt.target);
+    if (evt.type === 'click' && !evt.altKey && !evt.shiftKey && !evt.ctrlKey) {
+      evt.preventDefault();
+    }
+    var sceneEl = null;
+    try {
+      sceneEl = document.querySelector('input[name="scene"]:checked').closest('li[data-type="scene"]');
+    } catch (err) {
+      return;
+    }
+    console.log(document.activeElement);
+    // document.activeElement.blur();
+    window.open(sceneEl.getAttribute('data-start_url'), '_blank');
+    // document.body.focus();
+  }
+
   if (scenesFormEl) {
-    window.addEventListener('mouseover', spatialNavUpdate);
+    // scenesFormEl.addEventListener('click', sceneChosen);
+    // scenesFormEl.addEventListener('mouseover', spatialNavUpdate);
     window.addEventListener('keydown', spatialNavUpdate);
-    window.addEventListener('click', spatialNavUpdate);
+    // window.addEventListener('click', spatialNavUpdate);
+    window.addEventListener('submit', sceneChosen);
   }
 
   // window.addEventListener('load', function () {

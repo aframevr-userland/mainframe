@@ -57,73 +57,6 @@ h6 {
   text-indent: -200%;
 }
 
-/* Source: adapted from https://codepen.io/joroji/pen/bZJbEp */
-
-/*[data-supports-touch="true"] .card-container {
-  height: 100%;
-  overflow-y: hidden;
-}
-
-.card-container {
-  background: #eee;
-}
-
-.card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0px 2px 4px lightgray;
-  counter-increment: card;
-  display: none;
-  float: left;
-  height: 400px;
-  list-style: none;
-  margin: 10px;
-  padding: 20px;
-  position: absolute;
-  transform: scale(.8);
-  width: 60%;
-  z-index: 1;
-}
-
-.card.animate-prev {
-  transform: translateX(-150%) !important;
-}
-
-.card.animate-next {
-  transform: translateX(170%) !important;
-}
-
-.card.active,
-.card.prev,
-.card.next,
-.card.animate-prev,
-.card.animate-next {
-  display: block;
-  transition: transform 1.5s ease;
-}
-
-.card.active {
-  z-index: 2;
-  transform: scale(1) translateX(12%);
-}
-
-.card.prev {
- transform: scale(.8) translateX(-110%);
-}
-
-.card.next {
- transform: scale(.8) translateX(140%);
-}*/
-
-/* cell number */
-/*.card:before {
-  color: #111;
-  display: block;
-  font-size: 80px;
-  line-height: 200px;
-  text-align: center;
-}*/
-
 .scene-img {
   background-color: #eee;
   background-position: 50% 50%;
@@ -141,9 +74,39 @@ h6 {
 }
 
 .visually-hidden {
-  /*left: -100%;
+  /*
+  left: -100%;
+  opacity: .5;
   position: absolute;
   position: relative;
-  opacity: .5;*/
-  /*visibility: hidden;*/
+  visibility: hidden;
+  */
+}
+
+.hide-child .child {
+  opacity: 1;
+  -webkit-transition: opacity .15s ease-in;
+  transition: opacity .15s ease-in;
+}
+
+.hide-child:active .child,
+.hide-child:focus .child,
+.hide-child:hover .child {
+  opacity: 0;
+  -webkit-transition: opacity .15s ease-in;
+  transition: opacity .15s ease-in;
+}
+
+.hide-sibling ~ .sibling {
+  opacity: 1;
+  -webkit-transition: opacity .15s ease-in;
+  transition: opacity .15s ease-in;
+}
+
+.hide-sibling:active ~ .sibling,
+.hide-sibling:focus ~ .sibling,
+.hide-sibling:hover ~ .sibling {
+  opacity: 0;
+  -webkit-transition: opacity .15s ease-in;
+  transition: opacity .15s ease-in;
 }
