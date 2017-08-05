@@ -137,6 +137,7 @@ input:checked ~ a .glow:hover {
   transition: opacity .15s ease-in;
 }
 
+/*
 [data-slug="cadavr"] .scene-link [data-background-image] {
   background-image: url(../img/scenes/cadavr/screenshot_1.png);
 }
@@ -145,3 +146,4 @@ input:checked ~ a .glow:hover {
 [data-slug="cadavr"] .scene-link:hover [data-hover-background-image] {
   background-image: url(../img/scenes/cadavr/vgL0p8.gif);
 }
+*/
