@@ -41,6 +41,37 @@
     </header>
     <main id="main" class="main pt5">
       <form id="scenes-form" class="scenes-form">
+        <select>
+          <label class="form-label db">
+            <span class="form-label-inner">
+              Show only
+            </span>
+          </label>
+          <label class="form-label pointer">
+            <input type="checkbox" data-platform="responsive">
+            <span class="form-label-inner">Responsive</span>
+          </label>
+          <label class="form-label pointer">
+            <input type="checkbox" data-platform="htc_vive">
+            <span class="form-label-inner">HTC Vive</span>
+          </label>
+          <label class="form-label pointer">
+            <input type="checkbox" data-platform="oculus_rift">
+            <span class="form-label-inner">Oculus Rift</span>
+          </label>
+          <label class="form-label pointer">
+            <input type="checkbox" data-platform="google_cardboard">
+            <span class="form-label-inner">iPhone &amp; Android Cardboard</span>
+          </label>
+          <label class="form-label pointer">
+            <input type="checkbox" data-platform="samsung_gear_vr">
+            <span class="form-label-inner">Samsung Gear VR</span>
+          </label>
+          <label class="form-label pointer">
+            <input type="checkbox" data-platform="google_daydream">
+            <span class="form-label-inner">Google Daydream</span>
+          </div>
+        </select>
         <ol id="scenes" class="scenes list bg-white-90">
           <li id="scene-zuumo" class="scene"
               data-type="scene"
@@ -146,7 +177,7 @@
               data-screenshots-0-src="assets/img/scenes/drawvr_living_room/screenshot_1.png"
               data-supports="oculus_rift+windows google_daydream+android google_cardboard+android google_cardboard+ios"
               data-stable="false"
-              data-archived="true">
+              data-archived="false">
             <label class="scene-label db relative">
               <input type="radio" class="scene-radio visually-hidden" name="scene">
               <a class="scene-link db link color-inherit w-100 pa4 pb0 hide-child hide-sibling" href="http://drawvr.com/living-room/">
@@ -186,19 +217,20 @@
               data-supports="oculus_rift+windows htc_vive+windows google_daydream+android google_cardboard+android google_cardboard+ios"
               data-stable="false"
               data-archived="true">
-            <label class="scene-label db">
+            <label class="scene-label db relative">
               <input type="radio" class="scene-radio visually-hidden" name="scene">
-              <a class="scene-link db link color-inherit w-100 pa4" href="http://ghosttrainbuilder.com/">
-                <div class="scene-link-inner bg-orange br3 ba b--black-10 h-100 pa4 relative">
-                  <h3 class="scene-name white fw6 f2">Mars: An Interactive Journey</h3>
-                  <div class="bg-center contain h-100 w-100 overflow-hidden text-hidden dn" style="background-image: url(assets/img/scenes/drawvr_living_room/screenshot_1.png)">
-                  </div>
+              <a class="scene-link db link color-inherit w-100 pa4 pb0 hide-child hide-sibling" href="">
+                <div class="scene-link-inner bg-light-blue br3 ba b--black-10 h-100 relative">
+                  <h3 class="scene-name white bg-black-70 fw6 f2 pa3 pl2 pr2 z-1 absolute bottom-2 left-1 mb3 child">Mars: An Interactive Journey</h3>
+                  <div data-background-image-src="assets/img/scenes/mars/poster.png" class="bg-center br3 cover h5 w-100 o-70 glow"></div>
                 </div>
               </a>
-              <div class="scene-author black-40 pa4 pt0">
-                by <a class="scene-author-link db" href="http://drawvr.com/">The Washington Post</a>
+              <div class="scene-author white f7 lh-solid absolute bottom-1 left-2 ml3 sibling">
+                <div class="bg-black-50 pa2" style="margin-left: 1px">
+                  <span class="o-70">by </span><a class="scene-author-link link underline-hover color-inherit o-90" href="https://www.washingtonpost.com/">The Washington Post</a>
+                </div>
               </div>
-              <div class="scene-description black-40 pa4 pt0">
+              <div class="scene-description black-40 absolute bottom-1 left-2 ml3 dn">
                 <p>Relax in front of the tube.</p>
                 <p>Popcorn not included.</p>
               </div>

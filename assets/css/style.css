@@ -67,7 +67,7 @@ h6 {
 
 .scene-radio {
   left: .5rem;
-  opacity: .3;
+  opacity: 0;
   position: relative;
   top: .5rem;
 }
@@ -137,13 +137,6 @@ input:checked ~ a .glow:hover {
   transition: opacity .15s ease-in;
 }
 
-/*
-[data-slug="cadavr"] .scene-link [data-background-image] {
-  background-image: url(../img/scenes/cadavr/screenshot_1.png);
+[data-stable~="false"][data-archived~="false"] {
+  display: none;
 }
-
-[data-slug="cadavr"] .scene-radio:checked ~ .scene-link:hover [data-hover-background-image],
-[data-slug="cadavr"] .scene-link:hover [data-hover-background-image] {
-  background-image: url(../img/scenes/cadavr/vgL0p8.gif);
-}
-*/
