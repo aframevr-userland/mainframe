@@ -1,8 +1,8 @@
-# aframe-index
+# mainframe
 
-An **[index](https://index.aframe.io/)** of WebVR scenes made with **[A-Frame](https://aframe.io/)**.
+An **[index](https://aframevr-userland.github.io/mainframe/)** of WebVR scenes made with **[A-Frame](https://aframe.io/)**.
 
-**[View the A-Frame Index!](https://index.aframe.io/)
+**[View the A-Frame Index!](https://aframevr-userland.github.io/mainframe/)
 
 
 ### Development
@@ -10,8 +10,8 @@ An **[index](https://index.aframe.io/)** of WebVR scenes made with **[A-Frame](h
 Clone this Git repository and install the [Node](https://nodejs.org/en/download/) dependencies:
 
 ```sh
-git clone git@github.com:aframevr-userland/aframe-index.git
-cd aframe-index
+git clone git@github.com:aframevr-userland/mainframe.git
+cd mainframe
 npm install
 ```
 
@@ -30,6 +30,6 @@ You can copy, modify, distribute, and perform this work, even for commercial pur
 
 For more information, refer to these following links:
 
-* a copy of the [license](LICENSE.md) in [this source-code repository](https://github.com/aframevr-userland/aframe-index)
+* a copy of the [license](LICENSE.md) in [this source-code repository](https://github.com/aframevr-userland/mainframe)
 * the [human-readable summary](https://creativecommons.org/publicdomain/zero/1.0/) of the [full text of the legal code](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
 * the [full text of the legal code](https://creativecommons.org/publicdomain/zero/1.0/legalcode)

@@ -1,13 +1,13 @@
 {
-  "name": "aframe-index",
+  "name": "aframe-mainframe",
   "description": "An index of WebVR scenes made with A-Frame.",
   "author": "A-Frame authors",
   "version": "0.1.0",
   "main": "index.js",
   "license": "CC0-1.0",
-  "repository": "aframevr-userland/aframe-index",
-  "homepage": "https://github.com/aframevr-userland/aframe-index",
-  "bugs": "https://github.com/aframevr-userland/aframe-index/issues",
+  "repository": "aframevr-userland/mainframe",
+  "homepage": "https://github.com/aframevr-userland/mainframe",
+  "bugs": "https://github.com/aframevr-userland/mainframe/issues",
   "scripts": {
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV='development' live-server --no-browser",
