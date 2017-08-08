@@ -12,7 +12,6 @@ body {
 
 html,
 body {
-  height: 100%;
   position: relative;
 }
 
@@ -49,10 +48,6 @@ h6 {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-.wordmark {
-  position: absolute;
-}
-
 .text-hidden {
   text-indent: -200%;
 }
@@ -67,7 +62,7 @@ h6 {
 
 .scene-radio {
   left: .5rem;
-  opacity: .3;
+  opacity: 0;
   position: relative;
   top: .5rem;
 }
@@ -137,11 +132,69 @@ input:checked ~ a .glow:hover {
   transition: opacity .15s ease-in;
 }
 
-[data-slug="cadavr"] .scene-link [data-background-image] {
-  background-image: url(../img/scenes/cadavr/screenshot_1.png);
+.form-label[data-platform] {
+  padding-top: 1.5rem;
 }
 
-[data-slug="cadavr"] .scene-radio:checked ~ .scene-link:hover [data-hover-background-image],
-[data-slug="cadavr"] .scene-link:hover [data-hover-background-image] {
-  background-image: url(../img/scenes/cadavr/vgL0p8.gif);
+.form-label[data-platform]:before {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  content: "";
+  display: block;
+  height: 30px;
+  width: 100%;
+}
+
+.form-label[data-platform~="htc_vive"]:before {
+  background-image: url(../img/htc_vive.svg);
+}
+
+.form-label[data-platform~="oculus_rift"]:before {
+  background-image: url(../img/oculus_rift.svg);
+  background-size: auto 40px;
+}
+
+.form-label[data-platform~="google_daydream"]:before {
+  background-image: url(../img/google_daydream.svg);
+}
+
+.form-label[data-platform~="google_cardboard"]:before {
+  background-image: url(../img/google_cardboard.svg);
+}
+
+.form-label[data-platform~="samsung_gear_vr"]:before {
+  background-image: url(../img/samsung_gear_vr.svg);
+}
+
+.form-label[data-platform~="osvr_hdk2"]:before {
+  background-image: url(../img/osvr_hdk2.svg);
+}
+
+.form-label[data-platform].checked,
+.form-label[data-platform].checked:hover {
+  border-bottom-color: rgba(0,0,0,.6);
+}
+
+.form-label[data-platform].checked {
+  border-bottom-color: rgba(0,0,0,.9);
+  transition: .15s opacity ease-in;
+  opacity: 1;
+}
+
+[data-filtered="true"] [data-supports] {
+  display: block;
+}
+
+[data-filtered-htc_vive="true"] [data-supports]:not([data-supports*="htc_vive+"]):not([data-supports~="htc_vive"]),
+[data-filtered-oculus_rift="true"] [data-supports]:not([data-supports*="oculus_rift+"]):not([data-supports~="oculus_rift"]),
+[data-filtered-google_daydream="true"] [data-supports]:not([data-supports*="google_daydream+"]):not([data-supports~="google_daydream"]),
+[data-filtered-samsung_gear_vr="true"] [data-supports]:not([data-supports*="samsung_gear_vr+"]):not([data-supports~="samsung_gear_vr"]),
+[data-filtered-google_cardboard="true"] [data-supports]:not([data-supports*="google_cardboard+"]):not([data-supports~="google_cardboard"]),
+[data-filtered-osvr_hdk2="true"] [data-supports]:not([data-supports*="osvr_hdk2+"]):not([data-supports~="osvr_hdk2"]) {
+  display: none;
+}
+
+[data-stable~="false"][data-archived~="false"] {
+  display: none;
 }

@@ -1,14 +1,39 @@
 {
+  "name": "WebVR Agent",
+  "short_name": "WebVR Agent",
+  "description": "UI helper for presenting and navigating WebVR experiences.",
   "lang": "en",
-  "name": "A-Frame Index",
-  "short_name": "A-Frame",
+  "dir": "ltr",
   "start_url": "./?src=manifest",
-  "display": "minimal-ui",
-  "orientation": "portrait",
+  "scope": "./",
+  "display": "fullscreen",
+  "theme_color": "#177bdb",
+  "background_color": "#000",
   "icons": [
     {
-      "src": "https://index.aframe.io/assets/img/icon-outline.svg",
-      "sizes": "339x286"
+      "src": "img/logo.svg",
+      "sizes": "290x290",
+      "type": "image/svg",
+      "border-radius": "3px"
+    },
+    {
+      "src": "img/logo-256.png",
+      "sizes": "580x580",
+      "type": "image/png",
+      "density": "2"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32 48x48 64x64 256x256",
+      "type": "image/x-icon"
     }
+  ],
+  "vr_default_display": "HTC Vive",
+  "vr_available_displays": [
+    "HTC Vive",
+    "Oculus Rift",
+    "Google Daydream",
+    "Samsung Gear VR",
+    "Google Cardboard"
   ]
 }

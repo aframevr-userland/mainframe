@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://index.aframe.io/">
     <meta name="theme-color" content="#ef2d5e">
 
+    <link rel="stylesheet" href="assets/css/tachyons-custom.css">
     <link rel="stylesheet" href="assets/css/tachyons.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -30,17 +31,53 @@
     <meta name="twitter:title" content="WebVR experiences made with A-Frame">
 
     <meta property="fb:app_id" content="1535794316743373">
+
+    <style id="css-dynamic-rules"></style>
   </head>
-  <body class="black-70">
-    <header id="header" class="header pb3">
+  <body class="bg-near-white black-70">
+    <header id="header" class="header bb b--white-20">
       <a href="./" class="db pa4 pt3 pb3 wordmark o-80 glow w-100 bg-apink">
-        <img src="assets/img/logo-outline.svg" class="db h2 center" alt="A-Frame Index">
+        <img src="assets/img/logo-outline.svg" class="db h2 center" alt="A-Frame Index" width="64" height="64">
       </a>
     </header>
-    <main id="main" class="main pt5">
-      <form id="scenes-form" class="scenes-form">
-        <ol id="scenes" class="scenes list bg-white-90">
-          <li id="scene-zuumo" class="scene"
+    <main id="main" class="main">
+      <h2 class="dn">WebVR Scenes</h2>
+
+      <form action="#" id="filters-form" class="w-100 bg-white ph3 overflow-y-hidden overflow-x-auto" data-form="filters">
+        <h3 class="dn">Show only</h3>
+        <nav class="flex w6 w-100-ns mw8-ns center nowrap f0 pb6 nb6">
+          <!--
+          <label class="form-label pointer" data-platform="responsive">
+            <input type="checkbox">
+            <span class="form-label-inner db">Responsive</span>
+          </label>
+          -->
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="desktop htc_vive">
+            <input type="checkbox" name="platform" class="db o-0" value="htc_vive">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">HTC Vive</span>
+          </label>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="desktop oculus_rift">
+            <input type="checkbox" name="platform" class="db o-0" value="oculus_rift">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">Oculus Rift</span>
+          </label>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="mobile google_daydream">
+            <input type="checkbox" name="platform" class="db o-0" value="google_daydream">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">Google Daydream</span>
+          </label>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="mobile samsung_gear_vr">
+            <input type="checkbox" name="platform" class="db o-0" value="samsung_gear_vr">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">Samsung Gear VR</span>
+          </label>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="mobile google_cardboard">
+            <input type="checkbox" name="platform" class="db o-0" value="google_cardboard">
+            <span class="form-label-inner db tc f5 lh-title ws-normal">Google Cardboard</span>
+          </label>
+        </nav>
+      </form>
+
+      <form action="#" id="scenes-form" class="w-100" data-form="scenes">
+        <ol id="scenes" class="scenes list pb4">
+          <li id="scene-zuumo" class="scene mw8 center"
               data-type="scene"
               data-name="Zuumo"
               data-short_name="Zuumo"
@@ -67,7 +104,8 @@
             </label>
           </li>
           <!--
-          <li id="scene-ghost-trainer-builder" class="scene scene-ghost-trainer-builder dn"
+          <li id="scene-ghost-trainer-builder"
+              class="scene mw8 center"
               data-type="scene"
               data-name="Ghost Trainer Bulilder"
               data-short_name="Ghost Trainer"
@@ -95,7 +133,8 @@
             </label>
           </li>
           -->
-          <li id="scene-cadavr" class="scene scene-cadavr"
+          <li id="scene-cadavr"
+              class="scene mw8 center"
               data-type="scene"
               data-name="CadaVR"
               data-short_name="CadaVR"
@@ -120,7 +159,7 @@
               <a class="scene-link db link color-inherit w-100 pa4 pb0 hide-child hide-sibling" href="https://github.com/drryanjames/CadaVR">
                 <div class="scene-link-inner bg-light-blue br3 ba b--black-10 h-100 relative">
                   <h3 class="scene-name white bg-black-70 fw6 f2 pa3 pl2 pr2 z-1 absolute bottom-2 left-1 mb3 child">CadaVR</h3>
-                  <div data-background-image="assets/img/scenes/cadavr/screenshot_1.png" data-hover-background-image="assets/img/scenes/cadavr/vgL0p8.gif" class="bg-center br3 cover h5 w-100 o-70 glow"></div>
+                  <div data-background-image-src="assets/img/scenes/cadavr/screenshot_1.png" data-hover-background-image-src="assets/img/scenes/cadavr/cadavr-1.gif" class="bg-center br3 cover h5 w-100 o-70 glow"></div>
                 </div>
               </a>
               <div class="scene-author white f7 lh-solid absolute bottom-1 left-2 ml3 sibling">
@@ -134,40 +173,39 @@
               </div>
             </label>
           </li>
-          <li id="scene-drawvr-living-room" class="scene scene-drawvr-living-room"
+          <li id="scene-drawvr-living-room"
+              class="scene mw8 center"
               data-type="scene"
               data-name="DrawVR Living Room"
               data-short_name="Living Room"
               data-slug="drawvr_living_room"
               data-start_url="http://drawvr.com/living-room/"
-              data-videos-0-src="https://www.youtube.com/watch?v=eYyuEjhD-k8"
-              data-videos-1-src="https://www.youtube.com/watch?v=ONAYPFOZ_Ug"
-              data-videos-2-src="https://www.youtube.com/watch?v=qSBupUubrnQ"
-              data-repository=""
               data-screenshots-0-type="image/png"
-              data-screenshots-0-src="assets/img/drawvr_living_room/screenshot_1.png"
+              data-screenshots-0-src="assets/img/scenes/drawvr_living_room/screenshot_1.png"
               data-supports="oculus_rift+windows google_daydream+android google_cardboard+android google_cardboard+ios"
               data-stable="false"
-              data-archived="true">
-            <label class="scene-label db">
+              data-archived="false">
+            <label class="scene-label db relative">
               <input type="radio" class="scene-radio visually-hidden" name="scene">
-              <a class="scene-link db link color-inherit w-100 pa4" href="http://ghosttrainbuilder.com/">
-                <div class="scene-link-inner bg-light-red br3 ba b--black-10 h-100 pa4 relative">
-                  <h3 class="scene-name white fw6 f2">TV at the Cottage</h3>
-                  <div class="bg-center contain h-100 w-100 overflow-hidden text-hidden dn" style="background-image: url(assets/img/scenes/drawvr_living_room/screenshot_1.png)">
-                  </div>
+              <a class="scene-link db link color-inherit w-100 pa4 pb0 hide-child hide-sibling" href="http://drawvr.com/living-room/">
+                <div class="scene-link-inner bg-light-blue br3 ba b--black-10 h-100 relative">
+                  <h3 class="scene-name white bg-black-70 fw6 f2 pa3 pl2 pr2 z-1 absolute bottom-2 left-1 mb3 child">TV at the Cottage</h3>
+                  <div data-background-image-src="assets/img/scenes/drawvr_living_room/screenshot_1.png" data-hover-background-image-src="assets/img/scenes/drawvr_living_room/vgL0p8.gif" class="bg-center br3 cover h5 w-100 o-70 glow"></div>
                 </div>
               </a>
-              <div class="scene-author black-40 pa4 pt0">
-                by <a class="scene-author-link db" href="http://drawvr.com/">DrawVR</a>
+              <div class="scene-author white f7 lh-solid absolute bottom-1 left-2 ml3 sibling">
+                <div class="bg-black-50 pa2" style="margin-left: 1px">
+                  <span class="o-70">by </span><a class="scene-author-link link underline-hover color-inherit o-90" href="https://github.com/drryanjames">DrawVR</a>
+                </div>
               </div>
-              <div class="scene-description black-40 pa4 pt0">
+              <div class="scene-description black-40 absolute bottom-1 left-2 ml3 dn">
                 <p>Relax in front of the tube.</p>
                 <p>Popcorn not included.</p>
               </div>
             </label>
           </li>
-          <li id="scene-wapo-mars" class="scene scene-wapo-mars"
+          <li id="scene-wapo-mars"
+              class="scene mw8 center"
               data-type="scene"
               data-name="Mars: An Interactive Journey"
               data-short_name="Mars"
@@ -187,32 +225,30 @@
               data-supports="oculus_rift+windows htc_vive+windows google_daydream+android google_cardboard+android google_cardboard+ios"
               data-stable="false"
               data-archived="true">
-            <label class="scene-label db">
+            <label class="scene-label db relative">
               <input type="radio" class="scene-radio visually-hidden" name="scene">
-              <a class="scene-link db link color-inherit w-100 pa4" href="http://ghosttrainbuilder.com/">
-                <div class="scene-link-inner bg-orange br3 ba b--black-10 h-100 pa4 relative">
-                  <h3 class="scene-name white fw6 f2">Mars: An Interactive Journey</h3>
-                  <div class="bg-center contain h-100 w-100 overflow-hidden text-hidden dn" style="background-image: url(assets/img/scenes/drawvr_living_room/screenshot_1.png)">
-                  </div>
+              <a class="scene-link db link color-inherit w-100 pa4 pb0 hide-child hide-sibling" href="">
+                <div class="scene-link-inner bg-light-blue br3 ba b--black-10 h-100 relative">
+                  <h3 class="scene-name white bg-black-70 fw6 f2 pa3 pl2 pr2 z-1 absolute bottom-2 left-1 mb3 child">Mars: An Interactive Journey</h3>
+                  <div data-background-image-src="assets/img/scenes/mars/poster.png" class="bg-center br3 cover h5 w-100 o-70 glow"></div>
                 </div>
               </a>
-              <div class="scene-author black-40 pa4 pt0">
-                by <a class="scene-author-link db" href="http://drawvr.com/">The Washington Post</a>
+              <div class="scene-author white f7 lh-solid absolute bottom-1 left-2 ml3 sibling">
+                <div class="bg-black-50 pa2" style="margin-left: 1px">
+                  <span class="o-70">by </span><a class="scene-author-link link underline-hover color-inherit o-90" href="https://www.washingtonpost.com/">The Washington Post</a>
+                </div>
               </div>
-              <div class="scene-description black-40 pa4 pt0">
+              <div class="scene-description black-40 absolute bottom-1 left-2 ml3 dn">
                 <p>Relax in front of the tube.</p>
                 <p>Popcorn not included.</p>
               </div>
             </label>
           </li>
         </ol>
-      </form>
+      </div>
     </main>
     <!-- <script src="assets/js/ga.js" async defer></script> -->
-    <!-- <script src="assets/js/swiper.min.js"></script> -->
     <!-- <script src="assets/js/airtable.browser.js"></script> -->
     <script src="assets/js/main.js"></script>
-    <script>
-    </script>
   </body>
 </html>

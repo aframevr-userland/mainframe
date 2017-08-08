@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WebVR Debug</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 24px;
+        font-size: calc(10px + 1vw);
+      }
+
+      body {
+        color: #111;
+        font: 1rem/1.3 monospace;
+        padding: 6vw 6vw;
+      }
+
+      .logs dt {
+        font-weight: bold;
+      }
+
+      .logs dd + dt {
+        margin-top: 2rem;
+      }
+
+      .logs dd {
+        margin-left: 2.5rem;
+      }
+
+      .logs ol {
+        color: #ddd;
+        padding-left: 2.5rem;
+      }
+
+      .logs li > span {
+        color: #111;
+      }
+
+      hr {
+        background: #ddd;
+        height: 1px;
+        border-width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <dl id="logs" class="logs">
+    </dl>
+    <script>
+      var logsEl = document.querySelector('#logs');
+
+      logsEl.innerHTML += `<dt>User-Agent</dt><dd>${navigator.userAgent}</dd>\n`;
+      logsEl.innerHTML += `<dt>Firefox Build ID</dt><dd>${navigator.buildID}</dd>\n`;
+
+      logsEl.innerHTML += `<dt>WebVR API enabled</dt><dd>${!!navigator.getVRDisplays}</dd>`;
+
+      logsEl.innerHTML += `<br><hr><br>\n`;
+
+      logsEl.innerHTML += `<dt>VR displays available</dt><dd id="vr-displays" class="vr-displays"></dd>\n`;
+
+      if (navigator.getVRDisplays) {
+        navigator.getVRDisplays().then(displays => {
+          var display = displays[0];
+          if (display) {
+            logsEl.innerHTML += (
+              `  <ol>\n` +
+              `    <li><span>${display.displayId} — ${display.displayName}</span></li>\n` +
+              `  </ol>\n`
+            );
+          } else {
+            logsEl.innerHTML += `No VR displays detected\n`;
+          }
+        });
+      } else {
+        logsEl.innerHTML += `WebVR API not supported\n`;
+      }
+    </script>
+  </body>
+</html>
