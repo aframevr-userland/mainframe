@@ -34,46 +34,51 @@
     <style id="css-dynamic-rules"></style>
   </head>
   <body class="black-70">
-    <header id="header" class="header pb3">
+    <header id="header" class="header bb b--white-20">
       <a href="./" class="db pa4 pt3 pb3 wordmark o-80 glow w-100 bg-apink">
-        <img src="assets/img/logo-outline.svg" class="db h2 center" alt="A-Frame Index">
+        <img src="assets/img/logo-outline.svg" class="db h2 center" alt="A-Frame Index" width="64" height="64">
       </a>
     </header>
-    <main id="main" class="main pt5">
-      <form id="scenes-form" class="scenes-form">
-        <select>
-          <label class="form-label db">
-            <span class="form-label-inner">
-              Show only
-            </span>
+    <main id="main" class="main">
+      <h2 class="dn">WebVR Scenes</h2>
+
+      <form id="scenes-form" class="scenes-form w-100" data-form="scenes">
+        <h3 class="dn">Show only</h3>
+        <nav class="flex w-100 mw7 flex-auto center">
+          <!--
+          <label class="form-label pointer" data-platform="responsive">
+            <input type="checkbox">
+            <span class="form-label-inner db">Responsive</span>
           </label>
-          <label class="form-label pointer">
-            <input type="checkbox" data-platform="responsive">
-            <span class="form-label-inner">Responsive</span>
+          -->
+          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="htc_vive">
+            <input type="checkbox" name="platform" class="db o-0">
+            <span class="form-label-inner db tc">HTC Vive</span>
           </label>
-          <label class="form-label pointer">
-            <input type="checkbox" data-platform="htc_vive">
-            <span class="form-label-inner">HTC Vive</span>
+          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="oculus_rift">
+            <input type="checkbox" name="platform" class="db o-0">
+            <span class="form-label-inner db tc">Oculus Rift</span>
           </label>
-          <label class="form-label pointer">
-            <input type="checkbox" data-platform="oculus_rift">
-            <span class="form-label-inner">Oculus Rift</span>
+          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="mobile google_daydream">
+            <input type="checkbox" name="platform" class="db o-0">
+            <span class="form-label-inner db tc">Google Daydream</span>
           </label>
-          <label class="form-label pointer">
-            <input type="checkbox" data-platform="google_cardboard">
-            <span class="form-label-inner">iPhone &amp; Android Cardboard</span>
+          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="mobile samsung_gear_vr">
+            <input type="checkbox" name="platform" class="db o-0">
+            <span class="form-label-inner db tc">Samsung Gear VR</span>
           </label>
-          <label class="form-label pointer">
-            <input type="checkbox" data-platform="samsung_gear_vr">
-            <span class="form-label-inner">Samsung Gear VR</span>
+          <!--
+          <label class="form-label pointer" data-platform="google_cardboard">
+            <input type="checkbox">
+            <span class="form-label-inner db">iPhone &amp; Android Cardboard</span>
           </label>
-          <label class="form-label pointer">
-            <input type="checkbox" data-platform="google_daydream">
-            <span class="form-label-inner">Google Daydream</span>
-          </div>
-        </select>
-        <ol id="scenes" class="scenes list bg-white-90">
-          <li id="scene-zuumo" class="scene"
+          -->
+        </nav>
+      </form>
+
+      <div id="content" class="content">
+        <ol id="scenes" class="scenes list bg-near-white">
+          <li id="scene-zuumo" class="scene mw7 center"
               data-type="scene"
               data-name="Zuumo"
               data-short_name="Zuumo"
@@ -100,7 +105,8 @@
             </label>
           </li>
           <!--
-          <li id="scene-ghost-trainer-builder" class="scene scene-ghost-trainer-builder dn"
+          <li id="scene-ghost-trainer-builder"
+              class="scene mw7 center"
               data-type="scene"
               data-name="Ghost Trainer Bulilder"
               data-short_name="Ghost Trainer"
@@ -128,7 +134,8 @@
             </label>
           </li>
           -->
-          <li id="scene-cadavr" class="scene scene-cadavr"
+          <li id="scene-cadavr"
+              class="scene mw7 center"
               data-type="scene"
               data-name="CadaVR"
               data-short_name="CadaVR"
@@ -167,7 +174,8 @@
               </div>
             </label>
           </li>
-          <li id="scene-drawvr-living-room" class="scene scene-drawvr-living-room"
+          <li id="scene-drawvr-living-room"
+              class="scene mw7 center"
               data-type="scene"
               data-name="DrawVR Living Room"
               data-short_name="Living Room"
@@ -197,7 +205,8 @@
               </div>
             </label>
           </li>
-          <li id="scene-wapo-mars" class="scene scene-wapo-mars"
+          <li id="scene-wapo-mars"
+              class="scene mw7 center"
               data-type="scene"
               data-name="Mars: An Interactive Journey"
               data-short_name="Mars"
@@ -237,12 +246,10 @@
             </label>
           </li>
         </ol>
-      </form>
+      </div>
     </main>
     <!-- <script src="assets/js/ga.js" async defer></script> -->
     <!-- <script src="assets/js/airtable.browser.js"></script> -->
     <script src="assets/js/main.js"></script>
-    <script>
-    </script>
   </body>
 </html>

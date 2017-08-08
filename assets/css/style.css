@@ -49,10 +49,6 @@ h6 {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
-.wordmark {
-  position: absolute;
-}
-
 .text-hidden {
   text-indent: -200%;
 }
@@ -139,4 +135,39 @@ input:checked ~ a .glow:hover {
 
 [data-stable~="false"][data-archived~="false"] {
   display: none;
+}
+
+.form-label[data-platform] {
+  padding-top: 1.5rem;
+}
+
+.form-label[data-platform]:before {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  content: "";
+  display: block;
+  height: 30px;
+  width: 100%;
+}
+
+.form-label[data-platform~="htc_vive"]:before {
+  background-image: url(../img/htc_vive.svg);
+}
+
+.form-label[data-platform~="oculus_rift"]:before {
+  background-image: url(../img/oculus_rift.svg);
+  background-size: auto 40px;
+}
+
+.form-label[data-platform~="google_daydream"]:before {
+  background-image: url(../img/google_daydream.svg);
+}
+
+.form-label[data-platform~="samsung_gear_vr"]:before {
+  background-image: url(../img/samsung_gear_vr.svg);
+}
+
+.form-label[data-platform]:hover {
+  border-bottom-color: rgba(0,0,0,.6);
 }
