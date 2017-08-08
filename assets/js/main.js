@@ -46,7 +46,11 @@
   if (scenesFormEl) {
     // scenesFormEl.addEventListener('click', sceneChosen);
     // scenesFormEl.addEventListener('mouseover', spatialNavUpdate);
-    window.addEventListener('keydown', spatialNavUpdate);
+    window.addEventListener('keydown', function (evt) {
+      if (evt.keyCode === 37 || evt.keyCode === 38 || evt.keyCode === 39 || evt.keyCode === 40) {
+        spatialNavUpdate();
+      }
+    });
     // window.addEventListener('click', spatialNavUpdate);
     window.addEventListener('submit', sceneChosen);
   }
@@ -54,15 +58,14 @@
   window.addEventListener('load', function () {
     var supports = {
       touch: 'ontouchstart' in window,
-      mobile: isMobile(),
+      mobile: isMobile,
       tablet: isTablet(),
-      webvr: !!navigator.getVRDisplays,
-      webvrPositional: hasPositionalTracking()
+      webvr: !!navigator.getVRDisplays
     };
     supports.desktop = !supports.mobile && !supports.tablet;
 
     var displays = {
-      available: []
+      available: [],
       connected: [],
       presenting: []
     };
@@ -98,7 +101,7 @@
       }
     };
 
-    funtion getDisplaySlug (display) {
+    function getDisplaySlug (display) {
       var displayName = (display.displayName || display.name || '').toLowerCase();
       if (displayName.indexOf('oculus') > -1) {
         return headsets.oculus_rift.slug;
@@ -117,8 +120,8 @@
     /**
      * Check for positional tracking.
      */
-    function hasPositionalTracking () {
-      var supportsPositional = supports.mobile;
+    function hasPositionalTracking (isMobile) {
+      var supportsPositional = isMobile;
       if (supportsPositional) {
         return true;
       }
@@ -210,6 +213,7 @@
             addOrUpdateDisplay(display, 'connected');
           }
         });
+        supports.webvrPositional = hasPositionalTracking(isMobile);
       });
 
       window.addEventListener('vrdisplayconnect', function (evt) {
