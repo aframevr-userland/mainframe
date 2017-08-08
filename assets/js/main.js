@@ -1,5 +1,6 @@
 (function () {
   var scenesFormEl = document.querySelector('#scenes-form');
+  var filtersFormEl = document.querySelector('#filters-form');
 
   function spatialNavUpdate (evt) {
     var el = evt.target;
@@ -100,6 +101,11 @@
         slug: 'none'
       }
     };
+
+    var filteredHeadsets = {};
+    Object.keys(headsets).forEach(function (headsetKey) {
+      filteredHeadsets[headsetKey] = '';
+    });
 
     function getDisplaySlug (display) {
       var displayName = (display.displayName || display.name || '').toLowerCase();
@@ -255,12 +261,48 @@
       stylesEl.textContent += '' +
         '[data-background-image-src="' + src + '"] {' +
         '  background-image: url(' + src + ');' +
-        '}' +
-        '\n' +
+        '}';
+      if (srcHover) {
+        stylesEl.textContent += '\n' +
         'input:checked ~ a:hover [data-hover-background-image-src], ' +
         'a:hover [data-hover-background-image-src] {' +
         '  background-image: url(' + srcHover + ');' +
         '}'
+      }
     });
+
+    if (filtersFormEl) {
+      filtersFormEl.addEventListener('change', function (evt) {
+        var checkboxEl = evt.target && evt.target.closest && evt.target.closest('input[name="platform"]');
+        if (!checkboxEl) {
+          return;
+        }
+
+        var headsetSlug = checkboxEl.value;
+        var headsetSelected = checkboxEl.checked;
+
+        filteredHeadsets[headsetSlug] = headsetSelected;
+
+        document.documentElement.setAttribute('data-filtered', !!filtersFormEl.querySelector('input[name="platform"]:checked'));
+
+        var labelEl = checkboxEl.closest('label');
+        if (labelEl) {
+          if (headsetSelected) {
+            labelEl.classList.add('checked');
+          } else {
+            labelEl.classList.remove('checked');
+          }
+        }
+
+        Object.keys(filteredHeadsets).forEach(function (headsetKey) {
+          document.documentElement.setAttribute('data-filtered-' + headsetKey, filteredHeadsets[headsetKey]);
+        });
+      });
+      filtersFormEl.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        console.log('form submitted');
+      });
+    }
   });
 })();

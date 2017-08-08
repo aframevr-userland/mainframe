@@ -1,0 +1,21 @@
+.f0 {
+  font-size: 0;
+}
+
+.w6 {
+  width: 32rem;
+}
+
+.w7 {
+  width: 64rem;
+}
+
+/*.mw7 {
+  max-width: 64rem;
+}
+
+@media screen and (min-width: 60em) {
+  .mw7-l {
+    max-width: 64rem;
+  }
+}*/

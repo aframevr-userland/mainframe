@@ -12,7 +12,6 @@ body {
 
 html,
 body {
-  height: 100%;
   position: relative;
 }
 
@@ -133,10 +132,6 @@ input:checked ~ a .glow:hover {
   transition: opacity .15s ease-in;
 }
 
-[data-stable~="false"][data-archived~="false"] {
-  display: none;
-}
-
 .form-label[data-platform] {
   padding-top: 1.5rem;
 }
@@ -164,10 +159,42 @@ input:checked ~ a .glow:hover {
   background-image: url(../img/google_daydream.svg);
 }
 
+.form-label[data-platform~="google_cardboard"]:before {
+  background-image: url(../img/google_cardboard.svg);
+}
+
 .form-label[data-platform~="samsung_gear_vr"]:before {
   background-image: url(../img/samsung_gear_vr.svg);
 }
 
-.form-label[data-platform]:hover {
+.form-label[data-platform~="osvr_hdk2"]:before {
+  background-image: url(../img/osvr_hdk2.svg);
+}
+
+.form-label[data-platform].checked,
+.form-label[data-platform].checked:hover {
   border-bottom-color: rgba(0,0,0,.6);
+}
+
+.form-label[data-platform].checked {
+  border-bottom-color: rgba(0,0,0,.9);
+  transition: .15s opacity ease-in;
+  opacity: 1;
+}
+
+[data-filtered="true"] [data-supports] {
+  display: block;
+}
+
+[data-filtered-htc_vive="true"] [data-supports]:not([data-supports*="htc_vive+"]):not([data-supports~="htc_vive"]),
+[data-filtered-oculus_rift="true"] [data-supports]:not([data-supports*="oculus_rift+"]):not([data-supports~="oculus_rift"]),
+[data-filtered-google_daydream="true"] [data-supports]:not([data-supports*="google_daydream+"]):not([data-supports~="google_daydream"]),
+[data-filtered-samsung_gear_vr="true"] [data-supports]:not([data-supports*="samsung_gear_vr+"]):not([data-supports~="samsung_gear_vr"]),
+[data-filtered-google_cardboard="true"] [data-supports]:not([data-supports*="google_cardboard+"]):not([data-supports~="google_cardboard"]),
+[data-filtered-osvr_hdk2="true"] [data-supports]:not([data-supports*="osvr_hdk2+"]):not([data-supports~="osvr_hdk2"]) {
+  display: none;
+}
+
+[data-stable~="false"][data-archived~="false"] {
+  display: none;
 }

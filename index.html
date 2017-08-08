@@ -9,6 +9,7 @@
     <link rel="canonical" href="https://index.aframe.io/">
     <meta name="theme-color" content="#ef2d5e">
 
+    <link rel="stylesheet" href="assets/css/tachyons-custom.css">
     <link rel="stylesheet" href="assets/css/tachyons.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -33,7 +34,7 @@
 
     <style id="css-dynamic-rules"></style>
   </head>
-  <body class="black-70">
+  <body class="bg-near-white black-70">
     <header id="header" class="header bb b--white-20">
       <a href="./" class="db pa4 pt3 pb3 wordmark o-80 glow w-100 bg-apink">
         <img src="assets/img/logo-outline.svg" class="db h2 center" alt="A-Frame Index" width="64" height="64">
@@ -42,43 +43,41 @@
     <main id="main" class="main">
       <h2 class="dn">WebVR Scenes</h2>
 
-      <form id="scenes-form" class="scenes-form w-100" data-form="scenes">
+      <form action="#" id="filters-form" class="w-100 bg-white ph3 overflow-y-hidden overflow-x-auto" data-form="filters">
         <h3 class="dn">Show only</h3>
-        <nav class="flex w-100 mw7 flex-auto center">
+        <nav class="flex w6 w-100-ns mw8-ns center nowrap f0 pb6 nb6">
           <!--
           <label class="form-label pointer" data-platform="responsive">
             <input type="checkbox">
             <span class="form-label-inner db">Responsive</span>
           </label>
           -->
-          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="htc_vive">
-            <input type="checkbox" name="platform" class="db o-0">
-            <span class="form-label-inner db tc">HTC Vive</span>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="desktop htc_vive">
+            <input type="checkbox" name="platform" class="db o-0" value="htc_vive">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">HTC Vive</span>
           </label>
-          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="oculus_rift">
-            <input type="checkbox" name="platform" class="db o-0">
-            <span class="form-label-inner db tc">Oculus Rift</span>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="desktop oculus_rift">
+            <input type="checkbox" name="platform" class="db o-0" value="oculus_rift">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">Oculus Rift</span>
           </label>
-          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="mobile google_daydream">
-            <input type="checkbox" name="platform" class="db o-0">
-            <span class="form-label-inner db tc">Google Daydream</span>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="mobile google_daydream">
+            <input type="checkbox" name="platform" class="db o-0" value="google_daydream">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">Google Daydream</span>
           </label>
-          <label class="form-label pointer pv3 pa4 flex-auto o-60 bt bb bw2 b--transparent glow" data-platform="mobile samsung_gear_vr">
-            <input type="checkbox" name="platform" class="db o-0">
-            <span class="form-label-inner db tc">Samsung Gear VR</span>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="mobile samsung_gear_vr">
+            <input type="checkbox" name="platform" class="db o-0" value="samsung_gear_vr">
+            <span class="flex-auto form-label-inner db tc f5 lh-title ws-normal">Samsung Gear VR</span>
           </label>
-          <!--
-          <label class="form-label pointer" data-platform="google_cardboard">
-            <input type="checkbox">
-            <span class="form-label-inner db">iPhone &amp; Android Cardboard</span>
+          <label class="flex-auto form-label pointer w4 pv3 pa3 o-60 bt bb bw2 b--transparent glow" data-platform="mobile google_cardboard">
+            <input type="checkbox" name="platform" class="db o-0" value="google_cardboard">
+            <span class="form-label-inner db tc f5 lh-title ws-normal">Google Cardboard</span>
           </label>
-          -->
         </nav>
       </form>
 
-      <div id="content" class="content">
-        <ol id="scenes" class="scenes list bg-near-white">
-          <li id="scene-zuumo" class="scene mw7 center"
+      <form action="#" id="scenes-form" class="w-100" data-form="scenes">
+        <ol id="scenes" class="scenes list pb4">
+          <li id="scene-zuumo" class="scene mw8 center"
               data-type="scene"
               data-name="Zuumo"
               data-short_name="Zuumo"
@@ -106,7 +105,7 @@
           </li>
           <!--
           <li id="scene-ghost-trainer-builder"
-              class="scene mw7 center"
+              class="scene mw8 center"
               data-type="scene"
               data-name="Ghost Trainer Bulilder"
               data-short_name="Ghost Trainer"
@@ -135,7 +134,7 @@
           </li>
           -->
           <li id="scene-cadavr"
-              class="scene mw7 center"
+              class="scene mw8 center"
               data-type="scene"
               data-name="CadaVR"
               data-short_name="CadaVR"
@@ -175,7 +174,7 @@
             </label>
           </li>
           <li id="scene-drawvr-living-room"
-              class="scene mw7 center"
+              class="scene mw8 center"
               data-type="scene"
               data-name="DrawVR Living Room"
               data-short_name="Living Room"
@@ -206,7 +205,7 @@
             </label>
           </li>
           <li id="scene-wapo-mars"
-              class="scene mw7 center"
+              class="scene mw8 center"
               data-type="scene"
               data-name="Mars: An Interactive Journey"
               data-short_name="Mars"
