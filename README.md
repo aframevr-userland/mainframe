@@ -2,7 +2,7 @@
 
 An **[index](https://aframevr-userland.github.io/mainframe/)** of WebVR scenes made with **[A-Frame](https://aframe.io/)**.
 
-**[View the A-Frame Index!](https://aframevr-userland.github.io/mainframe/)
+**[View the A-Frame Index!](https://aframevr-userland.github.io/mainframe/)**
 
 
 ### Development
